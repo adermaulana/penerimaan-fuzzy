@@ -15,6 +15,7 @@ class AdminRaporController extends Controller
      */
     public function index()
     {
+
         return view('dashboard.rapor.index',[
             'rapor' => Rapor::latest()->get()
         ]);

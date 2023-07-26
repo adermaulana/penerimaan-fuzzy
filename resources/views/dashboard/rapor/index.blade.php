@@ -44,7 +44,7 @@
                     <td>{{ $data->semester_4 }}</td>
                     <td>{{ $data->semester_5 }}</td>
                     <td>{{ $data->semester_6 }}</td>
-                    <td>{{ $data->rata_rata }}</td>
+                    <td> {{ ($data->semester_1 + $data->semester_2 + $data->semester_3 + $data->semester_4 + $data->semester_5 + $data->semester_6) / 6 }} </td>
                     <td>
                       <a class="btn btn-warning" href="/dashboard/rapor/{{ $data->id }}/edit">Edit</a>
                       <form action="/dashboard/rapor/{{ $data->id }}" method="post" class="d-inline">

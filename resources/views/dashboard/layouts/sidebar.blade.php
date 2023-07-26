@@ -17,7 +17,7 @@
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           
           <li>
-            <a href="/dashboard/data_siswa">
+            <a href="/dashboard/peserta">
               <i class="bi bi-circle"></i><span>Lihat Data Peserta</span>
             </a>
           </li>
@@ -84,7 +84,7 @@
         </a>
         <ul id="hasil-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/dashboard/kelulusan/index">
+            <a href="/dashboard/kelulusan">
               <i class="bi bi-circle"></i><span>Lihat Nilai Kelulusan</span>
             </a>
           </li>

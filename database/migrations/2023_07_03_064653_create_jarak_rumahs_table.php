@@ -15,7 +15,7 @@ class CreateJarakRumahsTable extends Migration
     {
         Schema::create('jarak_rumahs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama')->nullable();
             $table->string('nama_kabupaten');
             $table->string('nama_kecamatan');
             $table->string('alamat');

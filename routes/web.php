@@ -12,6 +12,7 @@ use App\Http\Controllers\JarakRumahController;
 use App\Http\Controllers\AdminIjazahController;
 use App\Http\Controllers\AdminPesertaController;
 use App\Http\Controllers\AdminDataSiswaController;
+use App\Http\Controllers\AdminMenuHasilController;
 use App\Http\Controllers\InputDataSiswaController;
 use App\Http\Controllers\AdminJarakRumahController;
 
@@ -53,8 +54,8 @@ Route::resource('/dashboard/ijazah',AdminIjazahController::class);
 Route::resource('/dashboard/jarak_rumah',AdminJarakRumahController::class);
 // Dashboard Data Siswa
 Route::resource('/dashboard/data_siswa',AdminDataSiswaController::class);
-// Menu Hasil
-Route::resource('/dashboard/menu_hasil',MenuHasilController::class);
+// Dashboard Menu Hasil
+Route::resource('/dashboard/kelulusan',AdminMenuHasilController::class);
 // DasboardRapor
 Route::resource('/dashboard/rapor',AdminRaporController::class);
 

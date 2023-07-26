@@ -15,7 +15,7 @@ class CreateIjazahsTable extends Migration
     {
         Schema::create('ijazahs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama')->nullable();
             $table->float('ijazah');
             $table->string('foto_kk');
             $table->string('surat_lulus');

@@ -15,7 +15,7 @@
   <div class="row justify-content-center">  
 <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Nilai Iazah</h5>
+              <h5 class="card-title">Nilai Ijazah</h5>
               <!-- Bordered Table -->
               <table class="table table-bordered">
                 <thead>
