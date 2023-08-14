@@ -104,6 +104,15 @@
     @enderror
     </div>
     </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group mt-2">
+      <h6>Foto Rapor</h6>
+      <input type="file" name="foto_rapor" value="{{ old('foto_rapor', $rapor->foto_rapor) }}" class="form-control" >
+      @error('foto_rapor')
+      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+      @enderror
+      </div>
+      </div>
     <div>
     <div class="col-xs-6 col-sm-6 col-md-6">
     <div class="form-group">

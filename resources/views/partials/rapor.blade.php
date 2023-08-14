@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top: 130px">
 <div class="row justify-content-center">
-      <div class="col-sm-5"> 
+      <div class="col-sm-7"> 
        
         <div class="card">
           <div class="card-body">
@@ -56,8 +56,17 @@
                                     <input type="text" name="semester_6" class="form-control">
                                   </div>    
                                 </div>
-                            </div>        
-                            <div class="text-center mb-5">
+                                <form>
+                                    <div class="row mb-3">
+                                      <label for="inputNumber" class="col-sm-6 col-form-label">Upload Foto Raport</label>
+                                      <div class="col-sm-5">
+                                        <input class="form-control" name="foto_rapor" type="file" id="formFile">
+                                    </div>    
+                                  </div>
+                                 
+                  
+                            </div> 
+                            <div class="text-center mb-3">
                               <button type="submit" class="btn btn-primary">Submit</button>
                               <button type="reset" class="btn btn-secondary">Reset</button>
                             </div>

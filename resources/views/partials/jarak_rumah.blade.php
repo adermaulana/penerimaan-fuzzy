@@ -44,6 +44,12 @@
                           </select>
                         </div>
                       </div>
+                      <div class="row mb-3">
+                        <label for="inputNumber" class="col-sm-2 col-form-label">Upload Foto KK</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" name="foto_kk" type="file" id="formFile">
+                        </div>
+                      </div>
                     </div>
                     <div class="text-center mb-5">
                       <button type="submit" class="btn btn-primary">Submit</button>

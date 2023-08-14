@@ -20,12 +20,6 @@
                   <input type="text" name="ijazah" class="form-control">
                 </div>
               </div>
-              <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-5 col-form-label">Upload Foto KK</label>
-                  <div class="col-sm-6">
-                    <input class="form-control" name="foto_kk" type="file" id="formFile">
-                  </div>
-                </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-5 col-form-label">Upload Surat Keterangan Lulus</label>
                   <div class="col-sm-6">

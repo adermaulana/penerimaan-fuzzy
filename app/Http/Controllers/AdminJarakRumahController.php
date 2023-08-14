@@ -46,7 +46,14 @@ class AdminJarakRumahController extends Controller
             'nama_kecamatan' => 'required',
             'alamat' => 'required',
             'jarak_rumah' => 'required',
+            'foto_kk' => 'image|file|max:1024',
         ]);
+
+        if($request->foto_kk) {
+            $file = $request->foto_kk->getClientOriginalName();
+            $image = $request->foto_kk->storeAs('post-images', $file);
+            $validatedData['foto_kk'] = $image;
+        }
 
         JarakRumah::create($validatedData);
 
@@ -93,7 +100,15 @@ class AdminJarakRumahController extends Controller
             'nama_kecamatan' => 'required',
             'alamat' => 'required',
             'jarak_rumah' => 'required',
+            'foto_kk' => 'image|file|max:1024',
         ]);
+
+        if($request->foto_kk) {
+            $file = $request->foto_kk->getClientOriginalName();
+            $image = $request->foto_kk->storeAs('post-images', $file);
+            $validatedData['foto_kk'] = $image;
+        }
+
 
         JarakRumah::where('id',$jarakRumah->id)
         ->update($validatedData);

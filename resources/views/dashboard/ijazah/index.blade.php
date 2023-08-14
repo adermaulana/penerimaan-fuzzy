@@ -23,7 +23,6 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Nilai Rata-Rata Ijazah</th>
-                    <th scope="col">Foto KK</th>
                     <th scope="col">Foto Surat Keterangan Lulus</th>
                     <th scope="col">Tombol Aksi</th>
                   </tr>
@@ -34,7 +33,6 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->ijazah }}</td>
-                    <td><img width="150" src="{{ asset('storage/' . $data->foto_kk)  }}" alt=""></td>
                     <td><img width="150" src="{{ asset('storage/' . $data->surat_lulus)  }}" alt=""></td>
                     <td>
                       <a class="btn btn-warning" href="/dashboard/ijazah/{{ $data->id }}/edit">Edit</a>

@@ -17,7 +17,7 @@
                 <div class="card recent-sales overflow-auto">
       
                   <div class="card-body">
-                    <h5 class="card-title">Edit Nilai Ijazah</h5>
+                    <h5 class="card-title">Edit Nilai Jarak Rumah </h5>
                     <div class="container">
       <div class="row">
       <div class="col-lg-12 margin-tb">
@@ -94,6 +94,15 @@
             @enderror
             </div>
             </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group mt-2">
+              <h6>Foto KK</h6>
+              <input type="file" name="foto_kk" value="{{ old('foto_kk', $jarakrumah->foto_kk) }}" class="form-control" >
+              @error('foto_kk')
+              <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+              @enderror
+              </div>
+              </div>
     <div>
     <div class="col-xs-6 col-sm-6 col-md-6">
     <div class="form-group">

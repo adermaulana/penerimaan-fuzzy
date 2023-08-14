@@ -48,8 +48,16 @@ class AdminRaporController extends Controller
             'semester_3' => 'required',
             'semester_4' => 'required',
             'semester_5' => 'required',
-            'semester_6' => 'required'
+            'semester_6' => 'required',
+            'foto_rapor' => 'image|file|max:1024',
         ]);
+
+        if($request->foto_rapor) {
+            $file = $request->foto_rapor->getClientOriginalName();
+            $image = $request->foto_rapor->storeAs('post-images', $file);
+            $validatedData['foto_rapor'] = $image;
+        }
+
 
         Rapor::create($validatedData);
 
@@ -98,7 +106,16 @@ class AdminRaporController extends Controller
             'semester_4' => 'required',
             'semester_5' => 'required',
             'semester_6' => 'required',
+            'foto_rapor' => 'image|file|max:1024',
             ]);
+
+
+            
+        if($request->foto_rapor) {
+            $file = $request->foto_rapor->getClientOriginalName();
+            $image = $request->foto_rapor->storeAs('post-images', $file);
+            $validatedData['foto_rapor'] = $image;
+        }
 
             Rapor::where('id',$rapor->id)
             ->update($validateData);
