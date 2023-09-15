@@ -21,40 +21,21 @@
         </tr>
       </thead>
       <tbody>
+        @foreach($peserta as $data)
         <tr>
-          <th scope="row">1</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th scope="row"> {{ $loop->iteration }} </th>
+          <td> {{ $data->nama }} </td>
+          <td> {{ $data->nisn }} </td>
+          <td> {{ $data->asal_sekolah }} </td>
+          @foreach ($hasil as $data2)
+          @if($data2 >= 60)
+          <td>Lulus</td>
+          @else
+          <td>Tidak Lulus</td>
+          @endif
+          @endforeach
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td></td>
-          <td></td>
-          <td></td><td></td>
-        </tr>
+        @endforeach
       </tbody>
     </table>
 </div>

@@ -17,7 +17,7 @@
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
-            <a href="#" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+            <a href="{{ url('bukti_daftar_pdf') }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Download Bukti Pendaftaran</span>
                 <i class="bi bi-arrow-right"></i>
               </a>

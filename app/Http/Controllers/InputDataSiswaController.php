@@ -21,4 +21,6 @@ class InputDataSiswaController extends Controller
 
         return redirect('/')->with('success','Berhasil Menambahkan Data');
     }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rapor;
 use Illuminate\Http\Request;
+use App\Models\Peserta;
 
 class RaporController extends Controller
 {
@@ -42,7 +43,8 @@ class RaporController extends Controller
             'semester_4' => 'required',
             'semester_5' => 'required',
             'semester_6' => 'required',
-            'foto_rapor' => 'image|file|max:1024'
+            'foto_rapor' => 'image|file|max:1024',
+            'id_peserta' => 'required'
             ]);
 
             if($request->foto_rapor) {
@@ -53,7 +55,7 @@ class RaporController extends Controller
 
             Rapor::create($validatedData);
             return redirect('/rapor')
-            ->with('success','Jurusan Berhasil Ditambahkan');
+            ->with('success','Rapor Berhasil Ditambahkan');
     }
 
     /**

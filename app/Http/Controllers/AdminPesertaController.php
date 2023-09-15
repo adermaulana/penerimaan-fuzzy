@@ -121,4 +121,12 @@ class AdminPesertaController extends Controller
         return redirect('dashboard/peserta')
         ->with('success','Data Berhasil Dihapus');
     }
+
+    public function downloadpdf()
+    {
+        $data = Peserta::limit(20)->get();
+        $pdf = PDF::loadview('bukti-daftar-pdf',compact('data'));
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->stream('bukti_daftar.pdf');
+    }
 }

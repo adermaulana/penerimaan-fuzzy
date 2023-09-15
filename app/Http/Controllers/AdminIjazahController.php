@@ -41,23 +41,19 @@ class AdminIjazahController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required',
+            'id_peserta' => 'required',
             'ijazah' => 'required',
-            'foto_kk' => 'image|file|max:1024',
-            'surat_lulus' => 'image|file|max:1024',
+            'surat_lulus' => 'image|file|max:1024'
         ]);
 
-        if($request->foto_kk) {
-            $file = $request->foto_kk->getClientOriginalName();
-            $image = $request->foto_kk->storeAs('post-images', $file);
-            $validatedData['foto_kk'] = $image;
-        }
 
         if($request->surat_lulus) {
             $file = $request->surat_lulus->getClientOriginalName();
             $images = $request->surat_lulus->storeAs('post-images', $file);
             $validatedData['surat_lulus'] = $images;
         }
+
+
 
         Ijazah::create($validatedData);
 
@@ -99,17 +95,10 @@ class AdminIjazahController extends Controller
     public function update(Request $request, Ijazah $ijazah)
     {
         $validatedData = $request->validate([
-            'nama' => 'required',
             'ijazah' => 'required',
-            'foto_kk' => 'image|file|max:1024',
             'surat_lulus' => 'image|file|max:1024',
         ]);
 
-        if($request->foto_kk) {
-            $file = $request->foto_kk->getClientOriginalName();
-            $image = $request->foto_kk->storeAs('post-images', $file);
-            $validatedData['foto_kk'] = $image;
-        }
 
         if($request->surat_lulus) {
             $file = $request->surat_lulus->getClientOriginalName();

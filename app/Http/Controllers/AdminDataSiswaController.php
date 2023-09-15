@@ -120,4 +120,6 @@ class AdminDataSiswaController extends Controller
         return redirect('dashboard/data_siswa')
         ->with('success','Data Berhasil Dihapus');
     }
+
+   
 }

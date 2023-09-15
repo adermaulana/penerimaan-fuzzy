@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ijazah;
 use Illuminate\Http\Request;
+use App\Models\Peserta;
 
 class IjazahController extends Controller
 {
@@ -37,16 +38,11 @@ class IjazahController extends Controller
     {
         
         $validatedData = $request->validate([
+            'id_peserta' => 'required',
             'ijazah' => 'required|max:255',
-            'foto_kk' => 'image|file|max:1024',
             'surat_lulus' => 'image|file|max:1024'
         ]);
 
-        if($request->foto_kk) {
-            $file = $request->foto_kk->getClientOriginalName();
-            $image = $request->foto_kk->storeAs('post-images', $file);
-            $validatedData['foto_kk'] = $image;
-        }
 
         if($request->surat_lulus) {
             $file = $request->surat_lulus->getClientOriginalName();

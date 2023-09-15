@@ -15,7 +15,7 @@ class CreateRaporsTable extends Migration
     {
         Schema::create('rapors', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->nullable();
+            $table->foreignId('id_peserta');
             $table->float('semester_1')->nullable();
             $table->float('semester_2')->nullable();
             $table->float('semester_3')->nullable();

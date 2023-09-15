@@ -42,7 +42,6 @@ class AdminRaporController extends Controller
     public function store(Request $request)
     {
        $validatedData = $request->validate([
-            'nama' => 'required',
             'semester_1' => 'required',
             'semester_2' => 'required',
             'semester_3' => 'required',
@@ -50,6 +49,7 @@ class AdminRaporController extends Controller
             'semester_5' => 'required',
             'semester_6' => 'required',
             'foto_rapor' => 'image|file|max:1024',
+            'id_peserta' => 'required'
         ]);
 
         if($request->foto_rapor) {
@@ -99,7 +99,7 @@ class AdminRaporController extends Controller
     public function update(Request $request, Rapor $rapor)
     {
         $validateData = $request->validate([
-            'nama' => 'required',
+            
             'semester_1' => 'required',
             'semester_2' => 'required',
             'semester_3' => 'required',
@@ -107,16 +107,16 @@ class AdminRaporController extends Controller
             'semester_5' => 'required',
             'semester_6' => 'required',
             'foto_rapor' => 'image|file|max:1024',
+            
             ]);
 
 
-            
-        if($request->foto_rapor) {
-            $file = $request->foto_rapor->getClientOriginalName();
-            $image = $request->foto_rapor->storeAs('post-images', $file);
-            $validatedData['foto_rapor'] = $image;
-        }
-
+            if($request->foto_rapor) {
+                $file = $request->foto_rapor->getClientOriginalName();
+                $image = $request->foto_rapor->storeAs('post-images', $file);
+                $validatedData['foto_rapor'] = $image;
+            }
+    
             Rapor::where('id',$rapor->id)
             ->update($validateData);
 

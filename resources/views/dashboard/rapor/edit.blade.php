@@ -40,12 +40,12 @@
     <div class="col-xs-6 col-sm-6 col-md-6">
     <div class="form-group">
     <h6>Nama</h6>
-    <select class="form-select" name="nama">
+    <select class="form-select" name="id_peserta">
             @foreach ($nama as $data)
               <option value="{{ $data->nama }} " selected> {{ $data->nama }} </option>
             @endforeach
     </select>
-    @error('nama')
+    @error('id_peserta')
     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
     @enderror
     </div>

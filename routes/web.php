@@ -76,3 +76,7 @@ Route::resource('/menu_hasil',MenuHasilController::class);
 Route::resource('/rapor',RaporController::class);
 
 Route::post('data-siswa', [InputDataSiswaController::class,'create']);
+
+Route::get('/bukti_daftar_pdf', 'AdminPesertaController@downloadpdf');
+
+
