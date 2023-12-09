@@ -16,6 +16,8 @@ use App\Http\Controllers\AdminMenuHasilController;
 use App\Http\Controllers\InputDataSiswaController;
 use App\Http\Controllers\AdminJarakRumahController;
 
+use App\Models\Peserta;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +30,10 @@ use App\Http\Controllers\AdminJarakRumahController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index',[
+        'title' => 'Landing Page',
+        'peserta' => Peserta::count()
+    ]);
 });
 
 Route::get('/dashboard', function () {

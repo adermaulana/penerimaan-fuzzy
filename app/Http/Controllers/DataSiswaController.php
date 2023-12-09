@@ -14,7 +14,9 @@ class DataSiswaController extends Controller
      */
     public function index()
     {
-        return view('partials.data_siswa');
+        return view('data_siswa',[
+            'title' => 'Data Siswa'
+        ]);
     }
 
     /**

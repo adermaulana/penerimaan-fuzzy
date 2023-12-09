@@ -15,7 +15,9 @@ class RaporController extends Controller
      */
     public function index()
     {
-        return view('partials.rapor');
+        return view('rapor',[
+            'title' => 'Data Nilai Rapor'
+        ]);
     }
 
     /**

@@ -61,8 +61,9 @@ class MenuHasilController extends Controller
 
 		$result = $phuzzy->Execute();
 
-        return view('partials.menu_hasil',[
+        return view('menu_hasil',[
             'hasil' => $result,
+            'title' => 'Data Hasil',
             'peserta' => Peserta::latest()->get()
         ]);
     }

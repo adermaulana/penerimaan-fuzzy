@@ -12,15 +12,11 @@
           <h2 data-aos="fade-up" data-aos-delay="400">Selamat Datang di Website Pendaftaran Siswa Baru Madrasah Aliyah (MA) Manuju Kab Gowa.</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-              <a href="data_siswa.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="/register" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Daftar</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
-            <a href="{{ url('bukti_daftar_pdf') }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Download Bukti Pendaftaran</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
           </div>
         </div>
         <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -44,7 +40,7 @@
               <div class="count-box">
               <i class="bi bi-people" style="color: #bb0852;"></i>
                 <div>
-                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                  <span data-purecounter-start="0" data-purecounter-end="{{ $peserta }}" data-purecounter-duration="1" class="purecounter"></span>
                   <p>Total Pendaftar</p>
                 </div>
               </div>

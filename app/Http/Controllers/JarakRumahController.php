@@ -14,7 +14,9 @@ class JarakRumahController extends Controller
      */
     public function index()
     {
-        return view('partials.jarak_rumah');
+        return view('jarak_rumah',[
+            'title' => 'Data Jarak Rumah'
+        ]);
     }
 
     /**

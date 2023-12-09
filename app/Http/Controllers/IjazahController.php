@@ -15,7 +15,9 @@ class IjazahController extends Controller
      */
     public function index()
     {
-        return view('partials.ijazah');
+        return view('ijazah',[
+            'title' => 'Data Ijazah'
+        ]);
     }
 
     /**
