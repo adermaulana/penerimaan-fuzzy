@@ -2,13 +2,20 @@
 
 @section('container')
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero d-flex align-items-center">
-
-    <div class="container">
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+  
+  
+  <div class="container">
+      @if(session()->has('success'))
+                  <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                @endif
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Welcome</h1>
+          <h1 data-aos="fade-up">Welcome {{  auth('peserta')->user()->nama ?? auth()->user()->name ?? '' }} </h1>
           <h2 data-aos="fade-up" data-aos-delay="400">Selamat Datang di Website Pendaftaran Siswa Baru Madrasah Aliyah (MA) Manuju Kab Gowa.</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">

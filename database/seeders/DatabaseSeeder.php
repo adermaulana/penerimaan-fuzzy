@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Peserta;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,17 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Titing',
             'email' => 'titing@gmail.com',
+            'password' => bcrypt('12345'),
+        ]);
+
+        Peserta::create([
+            'nama' => 'Titing',
+            'nisn' => '12345678',
+            'email' => '12345678',
+            'jenis_kelamin' => 'wanita',
+            'tempat_lahir' => 'Makassar',
+            'tanggal_lahir' => date('Y-m-d'),
+            'asal_sekolah' => 'SMKN',
             'password' => bcrypt('12345'),
         ]);
     }

@@ -15,6 +15,7 @@
             <!-- General Form Elements -->
             <form action="{{ route('rapor.store') }}" method="post" enctype="multipart/form-data">
               @csrf
+              <input type="hidden" name="id_peserta">
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-6 col-form-label">Nilai Rata-Rata Semester 1</label>
                 <div class="col-sm-5">

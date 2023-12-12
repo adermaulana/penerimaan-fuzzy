@@ -15,6 +15,8 @@ class CreateHasilTesTable extends Migration
     {
         Schema::create('hasil_tes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_peserta');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

@@ -16,11 +16,14 @@ class CreatePesertasTable extends Migration
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nisn')->unique();
-            $table->string('jenis_kelamin');
-            $table->string('tempat_lahir');
-            $table->string('tanggal_lahir');
-            $table->string('asal_sekolah');
+            $table->string('email');
+            $table->string('nisn')->unique()->nullable();
+            $table->string('password');
+            $table->string('jenis_kelamin')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
+            $table->string('asal_sekolah')->nullable();
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

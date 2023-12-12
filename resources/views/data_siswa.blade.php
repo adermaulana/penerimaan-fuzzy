@@ -16,13 +16,7 @@
             <!-- General Form Elements -->
             <form action="/data-siswa" method="POST">
               @csrf
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                <div class="col-sm-10">
-                  <input name="nama" type="text" class="form-control">
-                </div>
-              </div>
-              <form>
+              @method('put')
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Nisn</label>
                   <div class="col-sm-10">
@@ -39,7 +33,6 @@
                       </select>
                   </div>
                   </div>
-                  <form>
                     <div class="row mb-3">
                       <label for="inputText" class="col-sm-2 col-form-label">Tempat Lahir</label>
                       <div class="col-sm-10">
@@ -52,7 +45,6 @@
                       <input name="tanggal_lahir" type="date" class="form-control">
                     </div>
                   </div>
-                  <form>
                     <div class="row mb-3">
                       <label for="inputText" class="col-sm-2 col-form-label">Asal Sekolah</label>
                       <div class="col-sm-10">

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MenuHasil;
 use App\Models\Ijazah;
 use App\Models\Rapor;
-use App\Models\JarakRumah;
+use App\Models\HasilTes;
 use Illuminate\Http\Request;
 
 class AdminMenuHasilController extends Controller
@@ -17,33 +17,9 @@ class AdminMenuHasilController extends Controller
      */
     public function index()
     {
-    
-        $Ijazah = ijazah;
-        $nilaiRapor = $this->nilaiRataRata(semester_1 + $data->semester_2 + $data->semester_3 + $data->semester_4 + $data->semester_5 + $data->semester_6) / 6;
-        $jarakRumah = jarak_rumah;
-
-    {
-        if (($ijazah >= 0 && $ijazah <= 40) && ($nilaiRapor >= 0 && $nilaiRapor <= 40) && ($jarakRumah >= 7 && $jarakRumah <= 10)) {
-            $statusKelulusan = 'Tidak Lulus';
-        } elseif (($ijazah >= 41 && $ijazah <= 75) && ($nilaiRapor >= 41 && $nilaiRapor <= 75) && ($jarakRumah >= 0 && $jarakRumah <= 3)) {
-            $statusKelulusan = 'Lulus';
-        } elseif (($ijazah >= 76 && $ijazah <= 100) && ($nilaiRapor >= 76 && $nilaiRapor <= 100) && ($jarakRumah >= 0 && $jarakRumah <= 3)) {
-            $statusKelulusan = 'Lulus';
-        } elseif (($ijazah >= 0 && $ijazah <= 40) && ($nilaiRapor >= 41 && $nilaiRapor <= 75) && ($jarakRumah >= 7 && $jarakRumah <= 10)) {
-            $statusKelulusan = 'Tidak Lulus';
-        } elseif (($ijazah >= 76 && $ijazah <= 100) && ($nilaiRapor >= 0 && $nilaiRapor <= 40) && ($jarakRumah >= 0 && $jarakRumah <= 3)) {
-            $statusKelulusan = 'Lulus';
-        } elseif (($ijazah >= 41 && $ijazah <= 75) && ($nilaiRapor >= 0 && $nilaiRapor <= 40) && ($jarakRumah >= 7 && $jarakRumah <= 10)) {
-            $statusKelulusan = 'Tidak Lulus';
-        } else {
-            // Default jika tidak masuk ke salah satu kondisi di atas
-            $statusKelulusan = 'Tidak Lulus';
-        }
-
-    }
-
         return view('dashboard.kelulusan.index',[
-            'menu_hasil' => MenuHasil::all()
+            'title' => 'Kelulusan',
+            'hasil_tes' => HasilTes::latest()->get()
         ]);
     }
 
@@ -111,5 +87,23 @@ class AdminMenuHasilController extends Controller
     public function destroy(menu_hasil $menu_hasil)
     {
         //
+    }
+
+    public function tampil(){
+
+        HasilTes::query()->update(['status' => 'Tampil']);
+
+        // Optionally, you can redirect or return a response
+        return redirect()->back()->with('success', 'Berhasil Mengubah!');
+
+    }
+
+    public function tidaktampil(){
+
+        HasilTes::query()->update(['status' => 'Tidak Tampil']);
+
+        // Optionally, you can redirect or return a response
+        return redirect()->back()->with('success', 'Berhasil Mengubah!');
+
     }
 }

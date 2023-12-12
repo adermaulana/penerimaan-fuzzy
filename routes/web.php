@@ -17,6 +17,7 @@ use App\Http\Controllers\InputDataSiswaController;
 use App\Http\Controllers\AdminJarakRumahController;
 
 use App\Models\Peserta;
+use App\Models\HasilTes;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    
+    return view('dashboard.index',[
+        'peserta' => Peserta::count(),
+        'lulus' => HasilTes::where('keterangan','>','60')->count(),
+        'tidak_lulus' => HasilTes::where('keterangan','<','60')->count()
+
+    ]);
 })->middleware('auth');
 
 
@@ -80,8 +87,11 @@ Route::resource('/menu_hasil',MenuHasilController::class);
 // Rapor
 Route::resource('/rapor',RaporController::class);
 
-Route::post('data-siswa', [InputDataSiswaController::class,'create']);
+Route::put('data-siswa', [InputDataSiswaController::class,'create']);
 
-Route::get('/bukti_daftar_pdf', 'AdminPesertaController@downloadpdf');
+//Ubah Info
+Route::put('/tampil',[AdminMenuHasilController::class,'tampil']);
+Route::put('/tidak-tampil',[AdminMenuHasilController::class,'tidaktampil']);
+
 
 

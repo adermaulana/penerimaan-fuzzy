@@ -6,6 +6,7 @@ use App\FIS\Fuzzy;
 use App\Models\MenuHasil;
 use Illuminate\Http\Request;
 use App\Models\Rapor;
+use App\Models\HasilTes;
 use App\Models\Ijazah;
 use App\Models\Peserta;
 
@@ -59,12 +60,35 @@ class MenuHasilController extends Controller
 		$phuzzy->setRealInput('ijazah', $nilai_ijazah->ijazah);
 		$phuzzy->setRealInput('rapor', $rata_rata);
 
+        $auth = auth('peserta')->user();
+        $id_peserta = $auth->id;
+
+        
 		$result = $phuzzy->Execute();
+        $nilai = $result['hasil'];
+        
+        $existingRecord = null;
+
+        if ($id_peserta) {
+            $existingRecord = HasilTes::where('id_peserta', $id_peserta)->first();
+        }
+        
+        if ($existingRecord) {
+            // If exists, update the existing record
+            $existingRecord->update(['keterangan' => $nilai]);
+        } elseif ($id_peserta) {
+            // If not exists and id_peserta is not null, create a new record
+            HasilTes::create([
+                'id_peserta' => $id_peserta,
+                'keterangan' => $nilai
+            ]);
+        }
 
         return view('menu_hasil',[
             'hasil' => $result,
             'title' => 'Data Hasil',
-            'peserta' => Peserta::latest()->get()
+            'hasil_tes' => HasilTes::latest()->get(),
+            'hasil_tampil' => HasilTes::get()->first()
         ]);
     }
 

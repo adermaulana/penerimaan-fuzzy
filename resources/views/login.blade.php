@@ -32,7 +32,7 @@
                   {{ session('loginError') }}
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-              @endif
+                @endif
 
               @if(session()->has('success'))
               <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
@@ -52,7 +52,7 @@
                   <form class="row g-3 needs-validation" method="post" action="/login" novalidate>
                     @csrf
                     <div class="col-12">
-                      <label for="email" class="form-label">Username</label>
+                      <label for="email" class="form-label">Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="email" name="email" class="form-control" id="email" required>

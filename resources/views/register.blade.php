@@ -38,7 +38,7 @@
                     @csrf
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nama</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <input type="text" name="nama" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
@@ -50,14 +50,6 @@
                           <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                         </div>
                       </div>
-
-                    <div class="col-12">
-                      <label for="number" class="form-label">Number</label>
-                      <input type="number" name="number" class="form-control" id="number" required>
-                      <div class="invalid-feedback">Please choose a number.</div>
-                    </div>
-
-
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>

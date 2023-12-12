@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="/" class="logo d-flex align-items-center">
               <img src="assets/img/logo.png" alt="">
               <span>MA Manuju Darussalam </span>
             </a>
@@ -22,9 +22,9 @@
           <div class="col-lg-2 col-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="data_siswa.php">Daftar</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="menu_hasil.php">Info</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data_siswa">Daftar</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/menu_hasil">Info</a></li>
             </ul>
           </div>
 

@@ -14,6 +14,7 @@
             <!-- General Form Elements -->
             <form action="{{ route('ijazah.store') }}" method="post" enctype="multipart/form-data">
               @csrf
+              <input type="hidden" name="id_peserta">
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-5 col-form-label">Nilai Rata-Rata Ijazah</label>
                 <div class="col-sm-6">

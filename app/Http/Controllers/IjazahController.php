@@ -38,9 +38,15 @@ class IjazahController extends Controller
      */
     public function store(Request $request)
     {
+
+        $auth = auth('peserta')->user();
+
+        if (!$auth) {
+            // Jika pengguna belum terotentikasi, redirect ke halaman login atau tampilkan pesan sesuai kebutuhan Anda
+            return redirect('/login')->with('loginError', 'Anda belum login. Silakan login terlebih dahulu.');
+        }
         
         $validatedData = $request->validate([
-            'id_peserta' => 'required',
             'ijazah' => 'required|max:255',
             'surat_lulus' => 'image|file|max:1024'
         ]);
@@ -51,6 +57,9 @@ class IjazahController extends Controller
             $images = $request->surat_lulus->storeAs('post-images', $file);
             $validatedData['surat_lulus'] = $images;
         }
+
+        $validatedData['id_peserta'] = $auth->id;
+
         Ijazah::create($validatedData);
 
         return redirect('/ijazah')->with('success','New Post has been Added');

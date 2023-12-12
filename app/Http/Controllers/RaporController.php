@@ -38,6 +38,13 @@ class RaporController extends Controller
      */
     public function store(Request $request)
     {
+        $auth = auth('peserta')->user();
+
+        if (!$auth) {
+            // Jika pengguna belum terotentikasi, redirect ke halaman login atau tampilkan pesan sesuai kebutuhan Anda
+            return redirect('/login')->with('loginError', 'Anda belum login. Silakan login terlebih dahulu.');
+        }
+
         $validatedData = $request->validate([
             'semester_1' => 'required',
             'semester_2' => 'required',
@@ -45,8 +52,7 @@ class RaporController extends Controller
             'semester_4' => 'required',
             'semester_5' => 'required',
             'semester_6' => 'required',
-            'foto_rapor' => 'image|file|max:1024',
-            'id_peserta' => 'required'
+            'foto_rapor' => 'image|file|max:1024'
             ]);
 
             if($request->foto_rapor) {
@@ -54,6 +60,8 @@ class RaporController extends Controller
                 $image = $request->foto_rapor->storeAs('post-images', $file);
                 $validatedData['foto_rapor'] = $image;
             }
+
+            $validatedData['id_peserta'] = $auth->id;
 
             Rapor::create($validatedData);
             return redirect('/rapor')
