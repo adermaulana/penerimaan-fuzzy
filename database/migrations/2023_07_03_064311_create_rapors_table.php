@@ -22,6 +22,7 @@ class CreateRaporsTable extends Migration
             $table->float('semester_4')->nullable();
             $table->float('semester_5')->nullable();
             $table->float('semester_6')->nullable();
+            $table->string('foto_rapor')->nullable();
             $table->timestamps();
         });
     }

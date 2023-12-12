@@ -10,9 +10,7 @@
     <h4 class="card-title">Pengumuman Kelulusan</h4></b>
 
     <!-- Table with stripped rows -->
-    @if($hasil_tampil->status == 'Tidak Tampil')
-      <h6> <marquee behavior="" direction=""><b>Untuk Pengumuman Kelulusan Akan Di Infokan Secepatnya pada laman ini!</b></marquee></h6>
-    @else
+    @if($hasil_tampil->status == 'Tampil')
     <table class="table table-striped">
       <thead>
         <tr>
@@ -36,7 +34,9 @@
           <td><b class="text-danger">Tidak Lulus</b></td>
           @endif
       </tr>
-    @endforeach  
+    @endforeach 
+    @else
+    <h6> <marquee behavior="" direction=""><b>Untuk Pengumuman Kelulusan Akan Di Infokan Secepatnya pada laman ini!</b></marquee></h6>
     @endif
       </tbody>
     </table>

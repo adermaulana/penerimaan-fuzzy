@@ -17,7 +17,6 @@ class CreateIjazahsTable extends Migration
             $table->id();
             $table->foreignId('id_peserta');
             $table->float('ijazah');
-            $table->string('foto_kk');
             $table->string('surat_lulus');
             $table->timestamps();
         });

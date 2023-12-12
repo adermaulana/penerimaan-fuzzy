@@ -17,6 +17,7 @@ class CreateHasilTesTable extends Migration
             $table->id();
             $table->foreignId('id_peserta');
             $table->string('keterangan');
+            $table->string('status')->default('Tidak Tampil');
             $table->timestamps();
         });
     }

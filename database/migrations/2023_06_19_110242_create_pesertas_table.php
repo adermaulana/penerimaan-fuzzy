@@ -23,7 +23,6 @@ class CreatePesertasTable extends Migration
             $table->string('tempat_lahir')->nullable();
             $table->string('tanggal_lahir')->nullable();
             $table->string('asal_sekolah')->nullable();
-            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }
