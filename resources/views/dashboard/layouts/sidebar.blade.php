@@ -8,7 +8,8 @@
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
+      <!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -22,7 +23,8 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Forms Nav -->
+      </li>
+      <!-- End Forms Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#raport-nav" data-bs-toggle="collapse" href="#">
@@ -40,7 +42,8 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Tables Nav -->
+      </li>
+      <!-- End Tables Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#ijazah-nav" data-bs-toggle="collapse" href="#">
@@ -58,7 +61,8 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Tables Nav -->
+      </li>
+      <!-- End Tables Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#jarak_rumah-nav" data-bs-toggle="collapse" href="#">
@@ -89,7 +93,8 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Tables Nav -->
+      </li>
+      <!-- End Tables Nav -->
 
     </ul>
 

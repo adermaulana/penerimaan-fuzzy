@@ -28,8 +28,8 @@
                     <div class="col-sm-10">
                       <select name="jenis_kelamin" class="form-select" aria-label="Default select example">
                         <option selected>Pilih Jenis Kelamin</option>
-                        <option value="1">Laki-Laki</option>
-                        <option value="2">Perempuan</option>
+                        <option value="Laki-Laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
                       </select>
                   </div>
                   </div>

@@ -16,7 +16,6 @@
 <div class="card">
             <div class="card-body">
               <h5 class="card-title">Nilai Raport</h5>
-              
               <!-- Bordered Table -->
               <table class="table table-bordered">
                 <thead>
@@ -38,7 +37,7 @@
                   @foreach($rapor as $data)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->peserta->nama }}</td>
                     <td>{{ $data->semester_1 }}</td>
                     <td>{{ $data->semester_2 }}</td>
                     <td>{{ $data->semester_3 }}</td>

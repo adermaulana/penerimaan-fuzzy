@@ -31,7 +31,7 @@
                   @foreach($ijazah as $data)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->peserta->nama }}</td>
                     <td>{{ $data->ijazah }}</td>
                     <td><img width="150" src="{{ asset('storage/' . $data->surat_lulus)  }}" alt=""></td>
                     <td>
