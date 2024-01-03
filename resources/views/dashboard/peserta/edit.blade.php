@@ -24,7 +24,7 @@
       <div class="pull-left">
       </div>
     <div class="pull-right">
-    <a class="btn btn-danger" href="/dashboard/data_siswa" enctype="multipart/form-data"> Batal</a>
+    <a class="btn btn-danger" href="/dashboard/peserta" enctype="multipart/form-data"> Batal</a>
     </div>
     </div>
     </div>
@@ -33,7 +33,7 @@
     {{ session('status') }}
     </div>
     @endif
-    <form action="/dashboard/data_siswa/{{ $datasiswa->id }}" method="POST" enctype="multipart/form-data">
+    <form action="/dashboard/peserta/{{ $datasiswa->id }}" method="POST" enctype="multipart/form-data">
       @method('PUT')
     @csrf
     <div class="row mt-3">
@@ -43,11 +43,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
             <h6>Nama</h6>
-            <select class="form-select" name="nama">
-                    @foreach ($nama as $data)
-                      <option value="{{ $data->nama }} " selected> {{ $data->nama }} </option>
-                    @endforeach
-            </select>
+            <input type="text" name="nama" value="{{ old('id_peserta',$datasiswa->nama) }}" class="form-control" >
             @error('nama')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
@@ -56,7 +52,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group mt-2">
             <h6>Nisn</h6>
-            <input type="number" name="nisn" value="{{ old('nisn') }}" class="form-control" >
+            <input type="text" name="nisn" value="{{ old('nisn',$datasiswa->nisn) }}" class="form-control" >
             @error('nisn')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
@@ -65,10 +61,10 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group mt-2">
             <h6>Jenis Kelamin</h6>
-            <select class="form-select" name="jarak_rumah">
+            <select class="form-select" name="jenis_kelamin">
             <option selected>Pilih Jenis Kelamin</option>
-            <option value="1">Laki-Laki</option>
-            <option value="2">Perempuan</option>
+            <option value="Laki-Laki">Laki-Laki</option>
+            <option value="Perempuan">Perempuan</option>
             </select>
             @error('jenis_kelamin')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -78,7 +74,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group mt-2">
             <h6>Tempat Lahir</h6>
-            <input type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}" class="form-control" >
+            <input type="text" name="tempat_lahir" value="{{ old('tempat_lahir',$datasiswa->tempat_lahir) }}" class="form-control" >
             @error('tempat_lahir')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
@@ -87,7 +83,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group mt-2">
             <h6>Tanggal Lahir</h6>
-            <input type="text" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="form-control" >
+            <input type="text" name="tanggal_lahir" value="{{ old('tanggal_lahir',$datasiswa->tanggal_lahir) }}" class="form-control" >
             @error('tanggal_lahir')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
              @enderror
@@ -96,7 +92,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group mt-2">
             <h6>Asal Sekolah</h6>
-            <input type="text" name="asal_sekolah" value="{{ old('asal_sekolah') }}" class="form-control" >
+            <input type="text" name="asal_sekolah" value="{{ old('asal_sekolah',$datasiswa->asal_sekolah) }}" class="form-control" >
             @error('asal_sekolah')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
              @enderror

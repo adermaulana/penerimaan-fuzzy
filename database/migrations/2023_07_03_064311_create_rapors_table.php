@@ -24,6 +24,8 @@ class CreateRaporsTable extends Migration
             $table->float('semester_6')->nullable();
             $table->string('foto_rapor')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_peserta')->references('id')->on('pesertas')->onDelete('cascade');
         });
     }
 

@@ -73,7 +73,7 @@ class AdminPesertaController extends Controller
      */
     public function edit($id)
     {
-        $datasiswa = DataSiswa::FindOrFail($id);
+        $datasiswa = Peserta::FindOrFail($id);
         return view('dashboard.peserta.edit',[
             'datasiswa' => $datasiswa,
             'nama' => Peserta::all()
@@ -89,7 +89,7 @@ class AdminPesertaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datasiswa = DataSiswa::FindOrFail($id);
+        $datasiswa = Peserta::FindOrFail($id);
         $validatedData = $request->validate([
             'nama' => 'required',
             'nisn' => 'required',
@@ -99,9 +99,8 @@ class AdminPesertaController extends Controller
             'asal_sekolah' => 'required',
         ]);
 
-        DataSiswa::where('id',$datasiswa->id)
-        ->update($validateData);
-
+        Peserta::where('id',$datasiswa->id)
+        ->update($validatedData);
 
         return redirect('/dashboard/peserta')
         ->with('success','Data Berhasil Diperbarui');
@@ -115,7 +114,7 @@ class AdminPesertaController extends Controller
      */
     public function destroy($id)
     {
-        $datasiswa = DataSiswa::FindOrFail($id);
+        $datasiswa = Peserta::FindOrFail($id);
         Peserta::destroy($datasiswa->id);
 
         return redirect('dashboard/peserta')

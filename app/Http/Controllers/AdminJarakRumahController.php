@@ -41,7 +41,7 @@ class AdminJarakRumahController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required',
+            'id_peserta' => 'required',
             'nama_kabupaten' => 'required',
             'nama_kecamatan' => 'required',
             'alamat' => 'required',
@@ -57,7 +57,7 @@ class AdminJarakRumahController extends Controller
 
         JarakRumah::create($validatedData);
 
-        return redirect('/dashboard/jarak_rumah')->with('success','Berhasil Menambahkan Nilai Rapor');
+        return redirect('/dashboard/jarak_rumah')->with('success','Berhasil Menambahkan Jarak Rumah');
     }
 
     /**

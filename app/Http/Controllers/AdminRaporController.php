@@ -117,6 +117,7 @@ class AdminRaporController extends Controller
                 $validatedData['foto_rapor'] = $image;
             }
     
+            
             Rapor::where('id',$rapor->id)
             ->update($validateData);
 

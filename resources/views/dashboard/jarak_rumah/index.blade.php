@@ -18,7 +18,6 @@
                     <th scope="col">Nama Kecamatan</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Jarak Rumah</th>
-                    <th scope="col">Foto KK</th>
                     <th scope="col">Tombol Aksi</th>
                   </tr>
                 </thead>
@@ -30,7 +29,6 @@
                     <td>{{ $data->nama_kecamatan }}</td>
                     <td>{{ $data->alamat }}</td>
                     <td>{{ $data->jarak_rumah }}</td>
-                    <td><img width="150" src="{{ asset('storage/' . $data->foto_kk)  }}" alt=""></td>
                     <td>
                       <a class="btn btn-warning" href="/dashboard/jarak_rumah/{{ $data->id }}/edit">Edit</a>
                       <form action="/dashboard/jarak_rumah/{{ $data->id }}" method="post" class="d-inline">

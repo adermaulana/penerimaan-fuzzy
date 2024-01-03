@@ -15,12 +15,15 @@ class CreateJarakRumahsTable extends Migration
     {
         Schema::create('jarak_rumahs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->nullable();
+            $table->foreignId('id_peserta');
             $table->string('nama_kabupaten');
             $table->string('nama_kecamatan');
             $table->string('alamat');
             $table->string('jarak_rumah');
             $table->timestamps();
+
+            $table->foreign('id_peserta')->references('id')->on('pesertas')->onDelete('cascade');
+
         });
     }
 

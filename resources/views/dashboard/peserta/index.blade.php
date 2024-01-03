@@ -5,6 +5,13 @@
 
 <main id="main" class="main">
 
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-dismissible fade show col-lg-12" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+@endif
+
 
     <div class="container">
       <div class="row justify-content-center">  

@@ -12,6 +12,6 @@ class Rapor extends Model
     protected $guarded = ['id'];
 
     public function peserta(){
-        return $this->belongsTo(Peserta::class ,'id');
+        return $this->belongsTo(Peserta::class ,'id_peserta');
     }
 }

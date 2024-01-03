@@ -19,6 +19,8 @@ class CreateIjazahsTable extends Migration
             $table->float('ijazah');
             $table->string('surat_lulus');
             $table->timestamps();
+
+            $table->foreign('id_peserta')->references('id')->on('pesertas')->onDelete('cascade');
         });
     }
 
