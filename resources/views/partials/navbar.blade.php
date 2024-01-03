@@ -15,6 +15,7 @@
           <ul>
             <li><a href="/rapor">Input Nilai Raport</a></li>
             <li><a href="/ijazah">Input Nilai Ijazah</a></li>
+            <li><a href="/jarak_rumah">Input Jarak Rumah</a></li>
           </ul>
         </li>
         @auth('peserta')

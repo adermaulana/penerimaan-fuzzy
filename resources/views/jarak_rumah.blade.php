@@ -13,6 +13,7 @@
             <!-- General Form Elements -->
             <form action="{{ route('jarak_rumah.store') }}" method="post" enctype="multipart/form-data">
               @csrf
+              <input type="hidden" name="id_peserta">
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-2 col-form-label">Nama Kabupaten</label>
                 <div class="col-sm-10">
@@ -42,12 +43,6 @@
                             <option value="4 km - 6 km">4 km - 6 km</option>
                             <option value="7 km - 10 km">7 km - 10 km</option>
                           </select>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">Upload Foto KK</label>
-                        <div class="col-sm-10">
-                          <input class="form-control" name="foto_kk" type="file" id="formFile">
                         </div>
                       </div>
                     </div>

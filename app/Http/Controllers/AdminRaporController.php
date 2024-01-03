@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rapor;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminRaporController extends Controller
 {
@@ -111,13 +112,15 @@ class AdminRaporController extends Controller
             ]);
 
 
-            if($request->foto_rapor) {
+            if($request->file('foto_rapor')) {
+                if($request->oldImage){
+                    Storage::delete($request->oldImage);
+                }
                 $file = $request->foto_rapor->getClientOriginalName();
-                $image = $request->foto_rapor->storeAs('post-images', $file);
-                $validatedData['foto_rapor'] = $image;
+                $validateData['foto_rapor'] = $request->file('foto_rapor')->storeAs('post-images',$file);
             }
     
-            
+
             Rapor::where('id',$rapor->id)
             ->update($validateData);
 

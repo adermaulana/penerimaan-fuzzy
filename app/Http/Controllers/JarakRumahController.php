@@ -37,19 +37,22 @@ class JarakRumahController extends Controller
      */
     public function store(Request $request)
     {
+
+        $auth = auth('peserta')->user();
+
+        if (!$auth) {
+            // Jika pengguna belum terotentikasi, redirect ke halaman login atau tampilkan pesan sesuai kebutuhan Anda
+            return redirect('/login')->with('loginError', 'Anda belum login. Silakan login terlebih dahulu.');
+        }
+
         $validatedData = $request->validate([
             'nama_kabupaten' => 'required',
             'nama_kecamatan' => 'required',
             'alamat' => 'required',
             'jarak_rumah' => 'required',
-            'foto_kk' => 'image|file|max:1024',
             ]);
 
-            if($request->foto_kk) {
-                $file = $request->foto_kk->getClientOriginalName();
-                $image = $request->foto_kk->storeAs('post-images', $file);
-                $validatedData['foto_kk'] = $image;
-            }
+            $validatedData['id_peserta'] = $auth->id;
 
             JarakRumah::create($validatedData);
             return redirect('/jarak_rumah')
