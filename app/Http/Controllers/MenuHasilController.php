@@ -71,12 +71,6 @@ class MenuHasilController extends Controller
 
         if ($id_peserta) {
             $existingRecord = HasilTes::where('id_peserta', $id_peserta)->first();
-        }
-        
-        if ($existingRecord) {
-            // If exists, update the existing record
-            $existingRecord->update(['keterangan' => $nilai]);
-            
         } elseif ($id_peserta) {
             // If not exists and id_peserta is not null, create a new record
             HasilTes::create([
