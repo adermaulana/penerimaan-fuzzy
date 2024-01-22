@@ -48,7 +48,7 @@ class RaporController extends Controller
             // Jika pengguna belum terotentikasi, redirect ke halaman login atau tampilkan pesan sesuai kebutuhan Anda
             return redirect('/login')->with('loginError', 'Anda belum login. Silakan login terlebih dahulu.');
         }
-
+        
         $validatedData = $request->validate([
             'semester_1' => 'required',
             'semester_2' => 'required',
@@ -57,17 +57,26 @@ class RaporController extends Controller
             'semester_5' => 'required',
             'semester_6' => 'required',
             'foto_rapor' => 'image|file|max:1024'
-            ]);
-
-            if($request->foto_rapor) {
-                $file = $request->foto_rapor->getClientOriginalName();
-                $image = $request->foto_rapor->storeAs('post-images', $file);
-                $validatedData['foto_rapor'] = $image;
-            }
-
-            $validatedData['id_peserta'] = $auth->id;
-
-            Rapor::create($validatedData);
+        ]);
+        
+        // Check if a record with the same peserta_id already exists
+        $existingRapor = Rapor::where('id_peserta', $auth->id)->first();
+        
+        if ($existingRapor) {
+            // If a record already exists, you can handle it accordingly.
+            // For example, redirect back with an error message.
+            return redirect()->back()->with('error', 'Data sudah ada untuk peserta ini.');
+        }
+        
+        if ($request->foto_rapor) {
+            $file = $request->foto_rapor->getClientOriginalName();
+            $image = $request->foto_rapor->storeAs('post-images', $file);
+            $validatedData['foto_rapor'] = $image;
+        }
+        
+        $validatedData['id_peserta'] = $auth->id;
+        
+        Rapor::create($validatedData);
 
             $phuzzy = new Fuzzy;
 

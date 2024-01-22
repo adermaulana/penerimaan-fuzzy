@@ -55,6 +55,14 @@ class IjazahController extends Controller
             'surat_lulus' => 'image|file|max:1024'
         ]);
 
+        $existingIjazah = Ijazah::where('id_peserta', $auth->id)->first();
+        
+        if ($existingIjazah) {
+            // If a record already exists, you can handle it accordingly.
+            // For example, redirect back with an error message.
+            return redirect()->back()->with('error', 'Data sudah ada untuk peserta ini.');
+        }
+
 
         if($request->surat_lulus) {
             $file = $request->surat_lulus->getClientOriginalName();
