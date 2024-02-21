@@ -5,6 +5,13 @@
 <div class="container" style="margin-top: 130px">
         <div class="row justify-content-center">
       <div class="col-lg-10"> 
+
+      @if(session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                  {{ session('error') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
        
         <div class="card">
           <div class="card-body">
@@ -39,9 +46,9 @@
                         <div class="col-sm-10">
                           <select name="jarak_rumah" class="form-select" aria-label="Default select example">
                             <option selected>Pilih Jarak Rumah</option>
-                            <option value="0 km - 3 km">0 km - 3 km</option>
-                            <option value="4 km - 6 km">4 km - 6 km</option>
-                            <option value="7 km - 10 km">7 km - 10 km</option>
+                            <option value="3">0 km - 5 km</option>
+                            <option value="7">6 km - 10 km</option>
+                            <option value="15">11 km keatas</option>
                           </select>
                         </div>
                       </div>

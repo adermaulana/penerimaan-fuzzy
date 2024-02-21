@@ -9,6 +9,7 @@ use App\FIS\Fuzzy;
 use App\Models\MenuHasil;
 use App\Models\Rapor;
 use App\Models\HasilTes;
+use App\Models\JarakRumah;
 
 class IjazahController extends Controller
 {
@@ -90,6 +91,10 @@ class IjazahController extends Controller
 		$phuzzy->addMember('rapor', 'sedang', 51, 65, 75, 'TRIANGLE');
 		$phuzzy->addMember('rapor', 'tinggi', 76, 85, 100, 'RIGHT_INFINITY');
 
+        $phuzzy->addMember('jarak', 'dekat',  0, 3, 5, 'LEFT_INFINITY');
+		$phuzzy->addMember('jarak', 'sedang', 6, 7, 10, 'TRIANGLE');
+		$phuzzy->addMember('jarak', 'jauh', 11, 50, 100, 'RIGHT_INFINITY');
+
 		$phuzzy->SetOutputNames(array('hasil'));
 
 		$phuzzy->addMember('hasil', 'tidak_lulus',  0, 30, 50, 'LEFT_INFINITY');
@@ -99,21 +104,22 @@ class IjazahController extends Controller
 		$phuzzy->clearRules();
 
         //Inferensi
-		$phuzzy->addRule('IF ijazah.rendah AND rapor.rendah THEN hasil.tidak_lulus');
-		$phuzzy->addRule('IF ijazah.sedang AND rapor.sedang THEN hasil.lulus');
-		$phuzzy->addRule('IF ijazah.tinggi AND rapor.tinggi THEN hasil.lulus');
-		$phuzzy->addRule('IF ijazah.rendah AND rapor.sedang THEN hasil.tidak_lulus');
-		$phuzzy->addRule('IF ijazah.sedang AND rapor.rendah THEN hasil.tidak_lulus');
-		$phuzzy->addRule('IF ijazah.tinggi AND rapor.sedang THEN hasil.lulus');
-		$phuzzy->addRule('IF ijazah.sedang AND rapor.tinggi THEN hasil.lulus');
+		$phuzzy->addRule('IF ijazah.rendah AND rapor.rendah AND jarak.jauh THEN hasil.tidak_lulus');
+		$phuzzy->addRule('IF ijazah.sedang AND rapor.sedang AND jarak.dekat THEN hasil.lulus');
+		$phuzzy->addRule('IF ijazah.tinggi AND rapor.tinggi AND jarak.dekat THEN hasil.lulus');
+		$phuzzy->addRule('IF ijazah.rendah AND rapor.sedang AND jarak.jauh THEN hasil.tidak_lulus');
+		$phuzzy->addRule('IF ijazah.tinggi AND rapor.rendah AND jarak.dekat THEN hasil.lulus');
+		$phuzzy->addRule('IF ijazah.sedang AND rapor.rendah AND jarak.jauh THEN hasil.tidak_lulus');
 
         $nilai_ijazah = Ijazah::latest()->first();
         $nilai_rapor = Rapor::latest()->first();
+        $nilai_jarak = JarakRumah::latest()->first();
 
         $rata_rata = ($nilai_rapor->semester_1 + $nilai_rapor->semester_2 + $nilai_rapor->semester_3 + $nilai_rapor->semester_4 + $nilai_rapor->semester_5 + $nilai_rapor->semester_6 ) / 6;
 
 		$phuzzy->setRealInput('ijazah', $nilai_ijazah->ijazah);
 		$phuzzy->setRealInput('rapor', $rata_rata);
+		$phuzzy->setRealInput('jarak', $nilai_jarak->jarak_rumah);
 
         $auth = auth('peserta')->user();
         $id_peserta = $auth->id;
