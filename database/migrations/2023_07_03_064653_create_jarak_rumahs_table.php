@@ -19,7 +19,7 @@ class CreateJarakRumahsTable extends Migration
             $table->string('nama_kabupaten');
             $table->string('nama_kecamatan');
             $table->string('alamat');
-            $table->string('jarak_rumah');
+            $table->float('jarak_rumah');
             $table->timestamps();
 
             $table->foreign('id_peserta')->references('id')->on('pesertas')->onDelete('cascade');
