@@ -46,9 +46,9 @@
                         <div class="col-sm-10">
                           <select name="jarak_rumah" class="form-select" aria-label="Default select example">
                             <option selected>Pilih Jarak Rumah</option>
-                            <option value="3">0 km - 5 km</option>
-                            <option value="7">6 km - 10 km</option>
-                            <option value="15">11 km keatas</option>
+                            <option value="3">0 km - 3 km</option>
+                            <option value="7">4 km - 6 km</option>
+                            <option value="15">7 km keatas</option>
                           </select>
                         </div>
                       </div>

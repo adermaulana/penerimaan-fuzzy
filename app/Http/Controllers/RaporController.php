@@ -95,9 +95,9 @@ class RaporController extends Controller
             $phuzzy->addMember('rapor', 'sedang', 51, 65, 75, 'TRIANGLE');
             $phuzzy->addMember('rapor', 'tinggi', 76, 85, 100, 'RIGHT_INFINITY');
 
-            $phuzzy->addMember('jarak', 'dekat',  0, 3, 5, 'LEFT_INFINITY');
-            $phuzzy->addMember('jarak', 'sedang', 6, 7, 10, 'TRIANGLE');
-            $phuzzy->addMember('jarak', 'jauh', 11, 50, 100, 'RIGHT_INFINITY');
+            $phuzzy->addMember('jarak', 'dekat',  0, 2, 3, 'LEFT_INFINITY');
+            $phuzzy->addMember('jarak', 'sedang', 4, 5, 6, 'TRIANGLE');
+            $phuzzy->addMember('jarak', 'jauh', 7, 8, 50, 'RIGHT_INFINITY');
     
             $phuzzy->SetOutputNames(array('hasil'));
     
